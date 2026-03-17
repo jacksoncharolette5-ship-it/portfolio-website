@@ -1,0 +1,478 @@
+/* Board layout stacked as rows */
+.board {
+    display: flex;
+    flex-direction: column;/*stack vertically as rows*/
+    gap: 20px;
+    
+}
+
+/* Columns */
+.column {
+    background-color: #f4f4f4;
+    padding: 15px;
+    border-radius: 8px;
+    width: 30%;
+    min-height: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Column headers */
+.column h2 {
+    text-align: left;/*align headers to the left*/
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: #333;
+}
+/* Task cards */
+li {
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Hover effect for tasks */
+li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Task buttons */
+li button {
+    margin-left: 5px;
+    padding: 3px 6px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+li button:hover {
+    opacity: 0.8;
+}
+
+/* Specific button colors */
+li button:nth-child(1) { background-color: #4caf50; color: white; } /* Start */
+li button:nth-child(2) { background-color: #f44336; color: white; } /* Delete */
+li button:nth-child(3) { background-color: #2196f3; color: white; } /* Complete */
+/* Different column colors */
+#todo-column {
+    background-color: #fff3e0;
+}
+
+#inprogress-column {
+    background-color: #e3f2fd;
+}
+
+#done-column {
+    background-color: #e8f5e9;
+}
+/* Stack columns on smaller screens */
+@media (max-width: 800px) {
+    .board {
+        flex-direction: column;
+    }
+
+    .column {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+#timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+#timer button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2196f3;
+    color: white;
+    cursor: pointer;
+}
+
+#timer button:hover {
+    opacity: 0.8;
+}
+/* Board as stacked rows */
+.board {
+    display: flex;
+    flex-direction: column; /* rows stacked vertically */
+    gap: 20px;
+}
+
+/* Each column is now a row */
+.column {
+    display: flex;
+    align-items: flex-start;  /* top-align tasks */
+    gap: 10px;                /* space between tasks */
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f4f4f4;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow-x: auto;          /* horizontal scroll if too many tasks */
+/* Task cards */
+}
+li {
+    min-width: 150px;           /* fixed width for cards */
+    background-color: white;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;     /* buttons below text */
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    flex-shrink: 0;             /* prevent shrinking in row */
+}
+
+/* Hover effect for task cards */
+li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Buttons inside task card */
+li button {
+    margin-top: 5px;
+    padding: 3px 6px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85em;
+
+}
+   
+/* Specific button colors */
+#todo-column { background-color: #ff0697; }
+#inprogress-column { background-color: #0592f8; }
+#done-column { background-color: #f60707; }
+/* --- Board Layout --- */
+.board {
+    display: flex;
+    flex-direction: column; /* stack rows vertically */
+    gap: 20px;
+}
+
+/* --- Columns / Rows --- */
+.column {
+    display: flex; /* horizontal flow for tasks */
+    align-items: flex-start;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    min-height: 120px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow-x: auto; /* horizontal scroll if tasks overflow */
+}
+
+/* Column Headers */
+.column h2 {
+    width: 100%;
+    text-align: left;
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* --- Task Cards --- */
+li {
+    min-width: 150px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column; /* buttons below text */
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    flex-shrink: 0; /* prevent shrinking in row */
+}
+
+/* Hover Effect */
+li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Task Buttons */
+li button {
+    margin-top: 5px;
+    padding: 3px 6px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85em;
+}
+
+li button:hover {
+    opacity: 0.8;
+}
+
+/* Button Colors */
+li button:nth-child(1) { background-color: #4caf50; color: white; } /* Start */
+li button:nth-child(2) { background-color: #f44336; color: white; } /* Delete */
+li button:nth-child(3) { background-color: #2196f3; color: white; } /* Complete */
+
+/* --- Column Colors --- */
+#todo-column { background-color: #fff3e0; }
+#inprogress-column { background-color: #e3f2fd; }
+#done-column { background-color: #e8f5e9; }
+
+/* --- Responsive --- */
+@media (max-width: 800px) {
+    .board {
+        flex-direction: column; /* still stacked vertically */
+    }
+    .column {
+        width: 100%;
+        overflow-x: auto; /* horizontal scroll if tasks overflow */
+    }
+}
+/* Board layout: columns side by side */
+.board {
+    display: flex;
+    flex-direction: row; /* horizontal layout */
+    gap: 20px;
+    padding: 10px;
+}
+
+/* Columns */
+.column {
+    flex: 1; /* columns share equal width */
+    background-color: #f4f4f4;
+    padding: 15px;
+    border-radius: 8px;
+    min-height: 400px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column; /* tasks stack vertically inside */
+    align-items: stretch;
+    overflow-y: auto; /* scroll if too many tasks */
+}
+
+/* Column headers */
+.column h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Task cards */
+li {
+    background-color: white;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Task hover effect */
+li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Buttons inside task cards */
+li button {
+    margin-top: 5px;
+    padding: 3px 6px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85em;
+}
+
+/* Optional: column colors */
+#todo-list { background-color: #fff3e0; }
+#inprogress-list { background-color: #e3f2fd; }
+#done-list { background-color: #e8f5e9; }
+
+/* Responsive: stack vertically on small screens */
+@media (max-width: 900px) {
+    .board {
+        flex-direction: column;
+    }
+}
+/* --- Board --- */
+.board {
+    display: flex;
+    flex-direction: row; /* horizontal columns */
+    gap: 20px;
+    padding: 20px;
+    background-color: #f0f2f5; /* subtle background for the whole board */
+    min-height: 80vh; /* fill most of screen height */
+}
+
+/* --- Columns --- */
+.column {
+    flex: 1; /* equal width columns */
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    max-height: 75vh; /* allow scrolling if content too tall */
+    overflow-y: auto;
+}
+
+/* Column headers */
+.column h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #333;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+/* --- Task Cards --- */
+li {
+    background-color: #ffffff;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: grab;
+}
+
+/* Card hover effect */
+li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Task buttons */
+li button {
+    margin-top: 6px;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85em;
+    font-weight: 500;
+}
+
+/* Individual button colors */
+li button:nth-child(1) { background-color: #4caf50; color: white; } /* Start */
+li button:nth-child(2) { background-color: #f44336; color: white; } /* Delete */
+li button:nth-child(3) { background-color: #2196f3; color: white; } /* Complete */
+li button:nth-child(4) { background-color: #ff9800; color: white; } /* Pause/Reset if used */
+
+/* Column colors for visual separation */
+#todo-column { background-color: #fff3e0; }
+#inprogress-column { background-color: #e3f2fd; }
+#done-column { background-color: #e8f5e9; }
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+    .board {
+        flex-direction: column; /* stack columns vertically on small screens */
+    }
+    .column {
+        max-height: none;
+    }
+}
+li.active-task {
+    border: 2px solid #ff9800; /* orange highlight */
+    background-color: #fff8e1;  /* light highlight color */
+    box-shadow: 0 8px 16px rgba(255, 152, 0, 0.3);
+}
+.dragging {
+    opacity: 0.5;
+ transform: rotate(2deg);}
+.column ul:hover     {
+    min-height: 50px; /* ensure columns don't collapse when empty */
+}
+#add-task-btn {
+    background-color: #4caf50;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 10px;
+}   
+#add-task-input {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: calc(100% - 20px); /* full width minus padding */
+    font-size: 1em;
+}
+
+
+.dashboard {/* Dashboard container style */
+    margin-bottom: 20px;
+}
+
+.stats {
+    display: flex;
+    gap: 20px;
+}
+
+.stat-box {
+    background: #f4f4f4;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    width: 120px;
+}
+
+/* Progress bar styles for pomodoro timer */
+.progress-container{
+width:100%;
+background:#ddd;
+height:20px;
+border-radius:10px;
+margin-top:10px;
+}
+
+#progress-bar{
+height:100%;
+width:0%;
+background:green;
+border-radius:10px;
+}
+
+/*progress dashboard styles */
+.pomodoro-dashboard{
+display:flex;
+flex-direction:column;
+align-items:center;
+margin-bottom:20px;
+}
+
+#progress-circle{
+transition: stroke-dashoffset 0.5s ease;
+transform: rotate(-90deg);
+transform-origin: 50% 50%;
+}
+
+#progress-text{
+position:absolute;
+font-size:22px;
+font-weight:bold;
+margin-top:60px;
+}

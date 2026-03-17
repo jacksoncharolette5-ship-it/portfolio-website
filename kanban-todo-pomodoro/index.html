@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban To-Do with Pomodoro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Kanban To-Do List + Pomodoro Timer</h1> <!--//main title of the app -->
+    </header>
+
+    <main>
+    </main> 
+<div class="dashboard"> <!--//dashboard section for productivity stats -->
+
+    <h2>Productivity Dashboard</h2>
+
+    <div class="stats"> <!--//container for individual stat boxes -->
+
+        <div class="stat-box">
+            <h3 id="total-tasks">0</h3>
+            <p>Total Tasks</p>
+        </div>
+
+        <div class="stat-box">
+            <h3 id="todo-count">0</h3>
+            <p>To Do</p>
+        </div>
+
+        <div class="stat-box">
+            <h3 id="progress-count">0</h3>
+            <p>In Progress</p>
+        </div>
+
+        <div class="stat-box">
+            <h3 id="done-count">0</h3>
+            <p>Completed</p>
+        </div>
+
+<!--//pomodoro progress section -->
+<div class="pomodoro-dashboard">
+<svg width="160" height="160">
+
+    <!-- background circle -->
+<circle 
+cx="80"
+cy="80"
+r="70"
+stroke="#ddd"
+stroke-width="10"
+fill="none"
+/>
+<!-- circle progress percentage -->
+<circle
+id="progress-circle"
+cx="80"
+cy="80"
+r="70"
+stroke="green"
+stroke-width="10"
+fill="none"
+stroke-dasharray="440"
+stroke-dashoffset="440"
+/>
+
+<!--timer section-->
+<div class="pomodoro-section">
+
+<h2>Focus Timer</h2>
+
+<div id="timer-display">25:00</div>
+
+<button id="start-timer">Start</button>
+<button id="pause-timer">Pause</button>
+<button id="reset-timer">Reset</button>
+
+<p>Sessions Completed: <span id="session-count">0</span></p>
+
+</div>
+</svg>
+
+<div id="progress-text">0%</div>
+
+<!--progress percentage title-->
+<p>Study Hours</p>
+
+</div>
+    </div>
+
+<div class="filters"> <!--//container for filter buttons -->
+    <h2>Filter by Category</h2><!--//filter section title -->
+<button onclick="filterTasks('All')">All</button>
+<button onclick="filterTasks('School')">School</button>
+<button onclick="filterTasks('Work')">Work</button>
+<button onclick="filterTasks('Personal')">Personal</button>
+<button onclick="filterTasks('Project')">Project</button>
+</div>
+
+<div class="filters"> <!--//container for filter buttons -->
+    <h2>Filter by Course</h2><!--//filter section title -->
+<button onclick="filterTasks('Programming')">Programming</button>
+<button onclick="filterTasks('Math')">Math</button>
+<button onclick="filterTasks('Business')">Business</button>
+<button onclick="filterTasks('Other')">Other</button>
+</div>
+
+<div class="workspaces"> 
+<h2>Workspaces</h2><!--//workspaces section title -->
+    <select id="workspace-select">
+        <option value="School">School</option>
+        <option value="Business">Business</option>
+        <option value="Personal">Personal</option>
+
+</select>
+
+
+<!--//pomodoro progress section -->
+<div class="progress-container"> <!--//container for progress bar -->
+    <h2>Progress</h2><!--//progress section title -->
+    <div id="progress-bar"></div>
+
+</div>
+</div>
+<!-- kanban board task management -->
+    <div class="board"> 
+        <!--to-do column for new tasks -->
+            <div class="column" id="todo-column"> <!--//to-do column for new tasks -->
+                <h2>To-Do</h2> <!--//title for to-do column -->
+               
+                
+            <!--//input field for adding new tasks -->  
+                <input id="new-task-input">
+
+                <!--dropdown to select task category-->
+                <select id="category-select"> 
+                    <option value="School">School</option>
+                    <option value="Work">Work</option>
+                     <option value="Personal">Personal</option>
+                     <option value="Project">Project</option>
+                     </select>
+            <!--course selection-->
+                <select id="course-select"> <!--//dropdown to select course for task -->
+                    <option value="Programming">Programming</option>
+                    <option value="Math">Math</option>
+                    <option value="Business">Business</option>
+                    <option value="Other">Other</option>
+                </select>
+
+            <!--due dates-->
+                <input type="date" id="due-date"> <!--//input for selecting due date -->
+
+<!-- add task button -->
+<button id="add-task-btn">Add Task</button> 
+
+<!-- current task list -->
+<ul id="todo-list"></ul>
+
+</select>
+            </div>
+
+            <div class="column" id="inprogress-column"> <!--//in-progress column for tasks being worked on -->  
+                <h2>In Progress</h2> <!--//title for in-progress column -->
+                <ul id="inprogress-list"></ul> <!--//unordered list to hold in-progress tasks -->
+            </div>
+
+            <div class="column" id="done-column"> <!--//completed column for finished tasks -->
+                <h2>Completed</h2> <!--//title for completed column -->
+                <ul id="done-list"></ul> <!--//unordered list to hold completed tasks -->
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</html>

@@ -10,8 +10,8 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #222;
-    color: white;
+    background: #5c0404;
+    color: rgb(71, 2, 2);
     padding: 15px 40px;
 }
 
